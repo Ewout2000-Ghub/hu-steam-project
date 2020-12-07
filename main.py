@@ -1,5 +1,7 @@
 import json
 import tkinter as tk
+from sort import *
+from statistiek import *
 
 
 # Laad het json bestand in
@@ -11,15 +13,12 @@ def laad_json():
     return data
 
 
-# Sorteer een lijst op basis van een bepaalde key
-def sorteer(list, key):
-    return sorted(list, key=lambda k: k[key], reverse=True)
-
-
 # Laad een tkinter GUI in
 root = tk.Tk()
 
-label = tk.Label(text=laad_json()[0]['name'])
+json = laad_json()
+merge_sort(json, 'price')
+label = tk.Label(text=json[0]['name'])
 label.pack()
 
 root.mainloop()
