@@ -1,0 +1,31 @@
+root = tk.Tk()
+root.title('Steam')
+root.geometry('500x500')
+root.iconbitmap(r"C:\Users\ewout\Documents\Steam icon extra groot.ico")
+root.config(bg='#1b2838')
+
+
+# Laad het json bestand in
+def laad_json():
+    f = open('steam.json')
+    data = json.load(f)
+    f.close()
+
+    return data
+
+
+# Sorteer een lijst op basis van een bepaalde key
+def sorteer(list, key):
+    return sorted(list, key=lambda k: k[key], reverse=True)
+
+
+# Laad een tkinter GUI in
+
+
+label = tk.Label(text=laad_json()[0]['name'],
+                 bg='#1b2838',
+                 fg='white',
+                 font=('bold', 15))
+label.pack()
+
+root.mainloop()
